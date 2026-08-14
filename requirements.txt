@@ -1,0 +1,29 @@
+# Pinned to versions verified together (imports + full test suite green) at
+# scaffold time. Bump deliberately, not implicitly on a fresh `pip install`.
+langgraph==1.2.11
+langgraph-checkpoint-sqlite==3.1.1
+langchain-core==1.5.4
+langchain-google-genai==4.3.3
+# Not for OpenAI itself -- DeepSeek's API is OpenAI-compatible, so this is
+# the client used for the optional WRITE_PROVIDER=deepseek path (A/B test
+# against Gemini for the write step; see app/agent/nodes/write.py).
+langchain-openai==1.5.0
+python-telegram-bot==22.8
+
+# research tools (wrapped directly, not via langchain-community, to avoid
+# fast-moving community-wrapper API drift)
+trafilatura==2.2.0
+arxiv==4.0.1
+wikipedia==1.4.0
+duckduckgo-search==8.1.1
+tavily-python==0.7.27
+requests>=2.32.3
+
+pydantic-settings==2.15.0
+aiosqlite==0.22.1
+
+# Renders the delivered article to standalone HTML so the user can open it
+# in a browser and copy the *rendered* page -- pasting rendered HTML (not
+# raw markdown text) is what makes Medium's paste handler preserve headings/
+# bold/code, since Telegram's own copy is always plain text.
+markdown==3.10.3

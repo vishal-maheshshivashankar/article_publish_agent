@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/bin/python -c ' *)",
+      "Bash(mkdir -p /tmp/agent_smoke_test7)",
+      "Bash(TELEGRAM_BOT_TOKEN=x OWNER_TELEGRAM_ID=123 GEMINI_API_KEY=x DATABASE_PATH=/tmp/agent_smoke_test7/agent.db .venv/bin/python -c ' *)",
+      "Bash(rm -rf /tmp/agent_smoke_test7)",
+      "WebFetch(domain:medium.com)",
+      "Bash(ssh -o ConnectTimeout=8 -o BatchMode=yes oracle 'echo OK && docker --version && docker compose version && whoami && uname -a')",
+      "Bash(docker buildx *)"
+    ]
+  }
+}
